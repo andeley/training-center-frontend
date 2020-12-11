@@ -4,13 +4,13 @@
   <div class="container-fluid">
     <div class="col-12" if.bind="lang === 'en'">
       <ol class="breadcrumb">
-        <li>
+        <li class="breadcrumb-item">
           <a route-href="route: problems;">Categorías</a>
         </li>
-        <li>
+        <li class="breadcrumb-item">
           <a href="/problemas/categoria/${problem.category}">Problemas en esta categoría</a>
         </li>
-        <li class="active">Problema "${problem.titleEN}"</li>
+        <li class="breadcrumb-item active">Problema "${problem.titleEN}"</li>
       </ol>
     </div>
     <div class="col-12" if.bind="lang === 'es'">
@@ -24,6 +24,7 @@
         <li class="active">Problema "${problem.titleES}"</li>
       </ol>
     </div>
+    <div class="row">
     <div class="col-lg-9">
       <div class="ufps-separator-mini"></div>
       <div class="card">
@@ -35,7 +36,7 @@
             <span class="${problem.isInEnglish() ? 'active' : 'inactive'}" click.delegate="showEN()">EN</span>
           </p>
           <p class="ufps-markdown-editor" markdown.bind="problem.descriptionES"></p>
-          <div class="col-12">
+          <div class="row">
             <div class="col-lg-6">
               <h3 class="text-center">Entrada de ejemplo</h3>
               <div class="card bg-light card-body mb-3 example-in-out">
@@ -117,5 +118,6 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
 </template>

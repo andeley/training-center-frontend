@@ -3,14 +3,14 @@
   <clock date.bind = "now" date-loaded.bind="dateLoaded" show-timer.bind="false"></clock>
   <div class="container ufps-container-logged">
     <ol class="breadcrumb">
-      <li>
+      <li class="breadcrumb-item">
         <a href="/clases">Clases</a>
       </li>
-      <li>
+      <li class="breadcrumb-item">
         <a href="/clases/clases/${assignment.syllabusId}">Detalle de la clase actual</a>
       </li>
-      <li class="active" if.bind="type === 'edit'">${assignment.title}</li>
-      <li class="active" if.bind="type === 'new'">Nueva tarea</li>
+      <li class="breadcrumb-item active" if.bind="type === 'edit'">${assignment.title}</li>
+      <li class="breadcrumb-item active" if.bind="type === 'new'">Nueva tarea</li>
     </ol>
     <h2 class="text-right" if.bind="type === 'edit'">${assignment.title}</h2>
     <h2 class="text-right" if.bind="type === 'new'">Nueva Tarea</h2>

@@ -5,17 +5,17 @@
   <clock date.bind = "now" date-loaded.bind="dateLoaded" show-timer.bind="false"></clock>
   <div class="container-fluid">
     <ol class="breadcrumb">
-      <li>
+      <li class="breadcrumb-item">
         <a href="/clases">Clases</a>
       </li>
-      <li>
+      <li class="breadcrumb-item">
         <a href="/clases/clases/${assignment.syllabusId}">Clase actual</a>
       </li>
-      <li>
+      <li class="breadcrumb-item">
         <a href="/clases/tarea/${assignmentId}">Tarea actual</a>
       </li>
-      <li class="active" if.bind="lang === 'es'">Problema "${problem.titleES}"</li>
-      <li class="active" if.bind="lang === 'en'">Problema "${problem.titleEN}"</li>
+      <li class="breadcrumb-item active" if.bind="lang === 'es'">Problema "${problem.titleES}"</li>
+      <li class="breadcrumb-item active" if.bind="lang === 'en'">Problema "${problem.titleEN}"</li>
     </ol>
     <div class="col-lg-9">
       <div class="ufps-separator-mini"></div>

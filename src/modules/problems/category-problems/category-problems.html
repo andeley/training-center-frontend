@@ -5,10 +5,10 @@
   <div class="container ufps-container-logged">
 
     <ol class="breadcrumb">
-      <li>
+      <li class="breadcrumb-item">
         <a href="/">Categorías</a>
       </li>
-      <li class="active">Problemas de "${category.name}"</li>
+      <li class="breadcrumb-item active">Problemas de "${category.name}"</li>
     </ol>
     <h1 class="text-right">${category.name}</h1>
     <hr>
@@ -34,7 +34,7 @@
             <p if.bind="!problem.isInSpanish() || (problem.isInEnglish() && language === 'Inglés')" class="ufps-name-problem-list">
               <a route-href="route: view-problem; params.bind: {id:problem.id, lang:'en'}">${problem.titleEN}</a>
             </p>
-            <span if.bind="problem.resolved" class="ufps-edit-problem-list glyphicon glyphicon-ok" data-toggle="tooltip" title="Ya solucionaste este problema" tooltip></span>            
+            <span if.bind="problem.resolved" class="fas fa-check" data-toggle="tooltip" title="Ya solucionaste este problema" tooltip></span>            
             <a if.bind="authService.isAdmin()" route-href="route: edit-problem; params.bind: {id:problem.id}">
               <span class="ufps-edit-problem-list glyphicon glyphicon-pencil" data-toggle="tooltip"
                 title="Editar problema" tooltip></span>

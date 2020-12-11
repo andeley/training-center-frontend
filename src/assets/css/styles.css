@@ -630,7 +630,7 @@ hr {
 .ufps-card-title a,
 .ufps-card-title h1 a {
     margin: 0;
-    font-size: 1.4em;
+    font-size: 1.2em;
     text-align: center;
     position: relative;
     color: #fff !important;
@@ -1288,10 +1288,10 @@ tr:nth-child(2n) td .ufps-score-gold {
     margin-top: 2em;
 }
 
-.card {
+/*.card {
     display: inline-block;
     width: 12em;
-}
+}*/
 
 #estadisticas {
     padding: 4em;
@@ -1392,10 +1392,10 @@ tr:nth-child(2n) td .ufps-score-gold {
     margin-bottom: 0;
 }
 
-.card {
+/*.card {
     margin-top: 3em;
     margin-left: 2em;
-}
+}*/
 
 #cardLink {
     padding-top: 0;
