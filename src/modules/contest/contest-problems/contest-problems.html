@@ -5,10 +5,10 @@
       <li>
           <a route-href="route: contest;">Maratones</a>
       </li>
-      <li>
+      <li  class="breadcrumb-item">
           <a route-href="route: detail; params.bind: {id:id}">${contest.title}</a>
       </li>
-      <li class="active">Problemas</li>
+      <li class="breadcrumb-item active">Problemas</li>
     </ol>
     <h2 class="text-right">${contest.title}</h2>
     <clock date.bind = "now" date-loaded.bind="dateLoaded" show-timer.bind="true" start-date.bind="startDate" end-date.bind="endDate"></clock>
