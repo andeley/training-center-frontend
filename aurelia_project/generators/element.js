@@ -9,22 +9,21 @@ export default class ElementGenerator {
     this.ui = ui;
   }
 
-  async execute() {
-    const name = await this.ui.ensureAnswer(
-      this.options.args[0],
-      'What would you like to call the custom element?'
-    );
+  execute() {
+    return this.ui
+      .ensureAnswer(this.options.args[0], 'What would you like to call the custom element?')
+      .then(name => {
+        let fileName = this.project.makeFileName(name);
+        let className = this.project.makeClassName(name);
 
-    let fileName = this.project.makeFileName(name);
-    let className = this.project.makeClassName(name);
+        this.project.elements.add(
+          ProjectItem.text(`${fileName}.js`, this.generateJSSource(className)),
+          ProjectItem.text(`${fileName}.html`, this.generateHTMLSource(className))
+        );
 
-    this.project.elements.add(
-      ProjectItem.text(`${fileName}.js`, this.generateJSSource(className)),
-      ProjectItem.text(`${fileName}.html`, this.generateHTMLSource(className))
-    );
-
-    await this.project.commitChanges();
-    await this.ui.log(`Created ${fileName}.`);
+        return this.project.commitChanges()
+          .then(() => this.ui.log(`Created ${fileName}.`));
+      });
   }
 
   generateJSSource(className) {
@@ -34,16 +33,16 @@ export class ${className} {
   @bindable value;
 
   valueChanged(newValue, oldValue) {
-    //
+
   }
 }
+
 `;
   }
 
   generateHTMLSource(className) {
     return `<template>
   <h1>\${value}</h1>
-</template>
-`;
+</template>`;
   }
 }

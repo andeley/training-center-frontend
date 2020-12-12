@@ -9,21 +9,20 @@ export default class GeneratorGenerator {
     this.ui = ui;
   }
 
-  async execute() {
-    const name = await this.ui.ensureAnswer(
-      this.options.args[0],
-      'What would you like to call the generator?'
-    );
+  execute() {
+    return this.ui
+      .ensureAnswer(this.options.args[0], 'What would you like to call the generator?')
+      .then(name => {
+        let fileName = this.project.makeFileName(name);
+        let className = this.project.makeClassName(name);
 
-    let fileName = this.project.makeFileName(name);
-    let className = this.project.makeClassName(name);
+        this.project.generators.add(
+          ProjectItem.text(`${fileName}.js`, this.generateSource(className))
+        );
 
-    this.project.generators.add(
-      ProjectItem.text(`${fileName}.js`, this.generateSource(className))
-    );
-
-    await this.project.commitChanges()
-    await this.ui.log(`Created ${fileName}.`);
+        return this.project.commitChanges()
+          .then(() => this.ui.log(`Created ${fileName}.`));
+      });
   }
 
   generateSource(className) {
@@ -61,12 +60,14 @@ export class \${className} {
   @bindable value;
 
   valueChanged(newValue, oldValue) {
-    //
+
   }
 }
+
 \`
   }
 }
+
 `;
   }
 }

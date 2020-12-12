@@ -1,33 +1,28 @@
-# `training-center-frontend`
+# Frontend - UFPS Training Center
 
-This project is bootstrapped by [aurelia-cli](https://github.com/aurelia/cli).
+## Configuraciones importantes
 
-For more information, go to https://aurelia.io/docs/cli/webpack
+Antes de ejecutar, es necesario editar el archivo src/config/api.js y editar la url a la cual se conectará la aplicación para obtener datos de backend. Especificamente, debe modificarse el valor de 'apiUrl'.
 
-## Run dev app
 
-Run `npm start`, then open `http://localhost:9000`
+## Instrucciones de instalación
 
-You can change the standard webpack configurations from CLI easily with something like this: `npm start -- --open --port 8888`. However, it is better to change the respective npm scripts or `webpack.config.js` with these options, as per your need.
+Instalar las herramientas necesarias:
 
-To enable Webpack Bundle Analyzer, do `npm run analyze` (production build).
+* npm install -g aurelia-cli
+* npm install
 
-To enable hot module reload, do `npm start -- --hmr`.
+### Para construir una versión con el código actual:
 
-To change dev server port, do `npm start -- --port 8888`.
+* au build // Versión de desarrollo con ayudas de depuración
+* au build --env production // Versión de producción
 
-To change dev server host, do `npm start -- --host 127.0.0.1`
+### Para ejecutar la aplicación:
 
-**PS:** You could mix all the flags as well, `npm start -- --host 127.0.0.1 --port 7070 --open --hmr`
+* au run
+* au run --watch // construye una nueva versión y recarga el navegador cada vez que hay un cambio en el código
 
-For long time aurelia-cli user, you can still use `au run` with those arguments like `au run --env prod --open --hmr`. But `au run` now simply executes `npm start` command.
+### Para ejecutar los tests unitarios:
 
-## Build for production
-
-Run `npm run build`, or the old way `au build --env prod`.
-
-## Unit tests
-
-Run `au test` (or `au jest`).
-
-To run in watch mode, `au test --watch` or `au jest --watch`.
+* au test 
+* au test --watch // No cierra el entorno de prueba, y se recarga en cada actualización del código

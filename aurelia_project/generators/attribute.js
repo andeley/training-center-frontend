@@ -9,21 +9,20 @@ export default class AttributeGenerator {
     this.ui = ui;
   }
 
-  async execute() {
-    const name = await this.ui.ensureAnswer(
-      this.options.args[0],
-      'What would you like to call the custom attribute?'
-    );
+  execute() {
+    return this.ui
+      .ensureAnswer(this.options.args[0], 'What would you like to call the custom attribute?')
+      .then(name => {
+        let fileName = this.project.makeFileName(name);
+        let className = this.project.makeClassName(name);
 
-    let fileName = this.project.makeFileName(name);
-    let className = this.project.makeClassName(name);
+        this.project.attributes.add(
+          ProjectItem.text(`${fileName}.js`, this.generateSource(className))
+        );
 
-    this.project.attributes.add(
-      ProjectItem.text(`${fileName}.js`, this.generateSource(className))
-    );
-
-    await this.project.commitChanges();
-    await this.ui.log(`Created ${fileName}.`);
+        return this.project.commitChanges()
+          .then(() => this.ui.log(`Created ${fileName}.`));
+      });
   }
 
   generateSource(className) {
@@ -36,9 +35,10 @@ export class ${className}CustomAttribute {
   }
 
   valueChanged(newValue, oldValue) {
-    //
+
   }
 }
+
 `;
   }
 }

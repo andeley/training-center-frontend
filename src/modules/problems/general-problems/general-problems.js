@@ -46,6 +46,7 @@ export class GeneralProblems {
      */
     activate(params, routeConfig) {
         this.routeConfig = routeConfig
+        console.log(params)
         this.level = params.level
     }
 
