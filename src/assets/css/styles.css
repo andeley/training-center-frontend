@@ -148,6 +148,9 @@ pre {
 .ufps-container-sign p {
     color: #fff;
 }
+.row{
+    padding-left: 1em;
+}
 
 .ufps-container-sign .ufps-sign-input,
 .ufps-navbar-input {
@@ -755,7 +758,7 @@ th {
     padding-bottom: 0;
 }
 .modal-footer{
-    padding-right: 30%;
+    justify-content: center;
     border: none;
     padding-top: 0;
 
@@ -954,6 +957,7 @@ a.inactive {
     color: #000;
     transition: all 0.3s ease;
     margin-left: 0.625em;
+    margin-top: 0.3em;
 }
 
 .ufps-td-problem:hover .ufps-edit-problem-list {
