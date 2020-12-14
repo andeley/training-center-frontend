@@ -19,18 +19,18 @@
           <li class="ufps-btn-nav ${(problems.isActive || searchB.isActive) ? 'active' : ''}" if.bind="authService.isStudent()">
             <a route-href="route: problems">Problemas</a>
           </li>
-          <li class="dropdown ufps-btn-nav ufps-dropdown-menu ${problems.isActive ? 'active' : ''}" if.bind="authService.isCoach() || authService.isAdmin()">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          <li class="dropdown ufps-btn-nav ufps-dropdown-menu ${problems.isActive ? 'active' : ''}" if.bind="authService.isCoach() || authService.isAdmin()">  
+            <a href="#" class="dropdown-toggler" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               Problemas
             </a>
-            <ul class="dropdown-item ufps-dropdown-menu">
-              <li>
-                <a route-href="route: problems">Administrar Categorías</a>
-              </li>
-              <li>
-                <a href="/problemas/nuevo">Añadir problemas</a>
-              </li>
-            </ul>
+            <div class="dropdown-menu ufps-dropdown-menu" aria-labelledby="dropdownMenu2">
+              
+              <button class="dropdown-item" type="button" route-href="route: problems">
+                <a route-href="route: problems">Administrar Categorías</a></button>
+              <button class="dropdown-item" type="button" href="/problemas/nuevo">
+                <a href="/problemas/nuevo">Añadir problemas</a></button>
+            
+            </div>
           </li>
           <li class="ufps-btn-nav ${classes.isActive ? 'active' : ''}" if.bind="authService.isStudent() || authService.isCoach()">
             <a route-href="route: classes">Clases</a>
@@ -87,21 +87,21 @@
                 <path fill-rule="evenodd" d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
               </svg>
             </a>
-            <ul class="dropdown-menu ufps-dropdown-menu">
-              <li if.bind="authService.isCoach() || authService.isStudent()">
+            <div class="dropdown-menu ufps-dropdown-menu">
+              <button class="dropdown-item" type="button" if.bind="authService.isCoach() || authService.isStudent()"></button>
                 <a href="/envios">Mis envios</a>
-              </li>
-              <li if.bind="authService.authenticated">
+              </button>
+              <button class="dropdown-item" type="button" if.bind="authService.authenticated">
                 <a href="/perfil">Perfil</a>
-              </li>
-              <li>
+              </button>
+              <button class="dropdown-item" type="button">
                 <a href="/acerca-de">Acerca de</a>
-              </li>
-              <li role="separator" class="divider"></li>
-              <li>
+              </button>
+              <div class="dropdown-divider"></div>
+              <button class="dropdown-item" type="button">
                 <a click.delegate="logOut()">Cerrar Sesión</a>
-              </li>
-            </ul>
+              </button>
+            </div>
           </li>
         </ul>
         

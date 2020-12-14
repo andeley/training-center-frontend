@@ -364,21 +364,20 @@ pre {
     color: #fff !important;
     border-color: #fff !important;
 }
-
 .ufps-dropdown-menu {
     border: none;
     margin: 0;
 }
-.ufps-dropdown-menu>li{
+.ufps-dropdown-menu>button{
     text-align: center;
     padding: 0.5em;
 } 
-.ufps-dropdown-menu>li:hover {
+.ufps-dropdown-menu>button:hover {
     background-color: #e74c3c !important;
     color: #fff !important;
 } 
-.ufps-dropdown-menu>li>a {
-    height: 1em;
+.ufps-dropdown-menu>button>a {
+    height: 0.6em;
     line-height: 2.1875em;
     color: #444 !important;
     border-bottom: 0px !important;
