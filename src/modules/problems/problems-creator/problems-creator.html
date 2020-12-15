@@ -1,7 +1,7 @@
 <template>
   <require from="simplemde/simplemde.min.css"></require>
   <require from="../../../resources/attributes/tooltip"></require>
-  <div class="container ufps-container-logged">
+  <div class="container-fluid ufps-container-logged">
     <h1 class="text-right" if.bind="!editMode">Nuevo problema</h1>
     <h1 class="text-right" if.bind="editMode">Editar problema ${newProblem.id}</h1>
     <hr>
@@ -111,7 +111,7 @@ Reemplaza este texto con la especificación de la salida de tu problema.
         <div class="row">
           <div class="col-lg-6 text-right">
             <h4 if.bind="!editMode">Seleccione los casos de prueba privados:</h4>
-            <h4 if.bind="editMode">¿Desea cambiar los casos de prueba privados? (Opcional)</h4>
+            <h5 if.bind="editMode">¿Desea cambiar los casos de prueba privados? (Opcional)</h5>
           </div>
           <div class="col-lg-6">
             <div class="row">
@@ -119,14 +119,14 @@ Reemplaza este texto con la especificación de la salida de tu problema.
                 <input type="file" name="input-file" id="input-file" class="inputfile-btn" change.delegate="validateTestCase('input')" accept=".txt, .in"
                   files.bind="newProblem.input">
                 <label for="input-file" tooltip data-toggle="tooltip" title="Archivo .txt o .in con las entradas que será ejecutado el programa escrito por el estudiante para ser validado">Entradas
-                  <span class="glyphicon glyphicon-ok-sign" show.bind="inputValid"></span>
+                  <span class="fas fa-check" show.bind="inputValid"></span>
                 </label>
               </div>
               <div class="col-md-6 ufps-input-creator">
                 <input type="file" name="output-file" id="output-file" class="inputfile-btn" accept=".txt, .out, .ans" change.delegate="validateTestCase('output')"
                   files.bind="newProblem.output">
                 <label for="output-file" tooltip data-toggle="tooltip" title="Archivo .txt, .ans o .out con las salidas que debe generar el programa escrito por el estudiante para ser considerado correcto">Salidas
-                  <span class="glyphicon glyphicon-ok-sign" show.bind="outputValid"></span>
+                  <span class="fas fa-check" show.bind="outputValid"></span>
                 </label>
               </div>
             </div>
@@ -136,7 +136,7 @@ Reemplaza este texto con la especificación de la salida de tu problema.
         <div class="ufps-separator"></div>
         <div class="col-12 form horizontal" show.bind="doubleLanguage">
           <h4 class="text-center">Versión en ${originalLanguage === 'en' ? 'Español' : 'Inglés'}</h4>
-          <div class="form-group">
+          <div class="form-inline">
             <label class="col-form-label col-md-2" for="problem-name">Nombre:</label>
             <div class="col-md-9 input-group ufps-input-creator">
               <input type="text" class="form-control" id="problem-name" placeholder="Nombre del problema" value.bind="newProblem.titleEN"
@@ -144,7 +144,7 @@ Reemplaza este texto con la especificación de la salida de tu problema.
               <input type="text" class="form-control" id="problem-name" placeholder="Nombre del problema" value.bind="newProblem.titleES"
                 if.bind="originalLanguage === 'en'">
               <span class="input-group-addon" tooltip data-toggle="tooltip" title="Título del problema">
-                <span class="glyphicon glyphicon-question-sign"></span>
+                <span class="fas fa-question-circle"></span>
               </span>
             </div>
           </div>
@@ -168,11 +168,13 @@ Reemplaza este texto con la especificación de la salida de tu problema.
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
+            <h2 class="modal-title" id="myModalLabel">Ayuda</h2>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-            <h2 class="modal-title" id="myModalLabel">Ayuda</h2>
             <hr>
+          </div>
+          <div class="modal-body">
             <p>Este editor utiliza Markdown, lenguaje de marcado ligero con el cual puedes dar formato rápido a tus ejercicios.
               Para tu comodidad, la barra superior del editor contiene las principales opciones de markdown. Si prefieres
               tu mismo escribir la sintaxis, aquí tienes una referencia rápida:</p>
