@@ -370,7 +370,7 @@ pre {
 }
 .ufps-dropdown-menu>button{
     text-align: center;
-    padding: 0.5em;
+    padding: 0.4em;
 } 
 .ufps-dropdown-menu>button:hover {
     background-color: #e74c3c !important;
@@ -633,9 +633,6 @@ hr {
     -ms-transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
-}
-.fas.fa-plus-circle{
-    padding-top: 1.1em;
 }
 .ufps-card-title h1 span {
     border: 0.25em solid #fff;

@@ -10,9 +10,9 @@
     <div repeat.for="category of categories" class="col-12 col-md-6 col-lg-4 col-xl-3 ufps-card-container">
       <div class="ufps-card">
         <div class="ufps-card-title">
-          <span if.bind="authService.isAdmin()" class="ufps-edit-category glyphicon glyphicon-pencil" data-toggle="tooltip" title="Editar el nombre de la categoría"
+          <span if.bind="authService.isAdmin()" class="ufps-edit-category fas fa-pencil-alt" data-toggle="tooltip" title="Editar el nombre de la categoría"
             click.delegate="showEditCategory(category.id, category.name)" tooltip></span>
-          <span if.bind="authService.isAdmin()" class="ufps-remove-category glyphicon glyphicon-remove" data-toggle="tooltip" title="Eliminar categoría"
+          <span if.bind="authService.isAdmin()" class="ufps-remove-category fas fa-times" data-toggle="tooltip" title="Eliminar categoría"
             click.delegate="showRemoveCategory(category.id, category.name)" tooltip></span>
           <h1>${category.name}</h1>
         </div>
@@ -44,20 +44,22 @@
   </div>
   <!--MODAL PARA AÑADIR CATEGORIA-->
   <div if.bind="authService.isAdmin()" class="modal fade" id="new-category" tabindex="-1" role="dialog" aria-labelledby="new-category">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header text-center">
+          <h4 class="modal-title">Nueva categoría</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <h4 class="modal-title">Nueva categoría</h4>
-          <br>
-          <form submit.delegate="createCategory()">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Nombre de la categoría" value.bind="newCategory" required>
-              <span class="input-group-btn">
-                <input type="submit" class="btn btn-secondary ufps-btn-secondary" value="Agregar">
-              </span>
+        </div>
+          <form submit.delegate="createCategory()"> 
+            <div class="modal-footer">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control"  value.bind="newCategory" placeholder="Nombre de la categoría" required>
+                  <div class="input-group-append input-group-btn">
+                    <button class="input-group-text btn btn-secondary ufps-btn-secondary" value="Agregar">Agregar</button>
+                  </div>
+                </div>
             </div>
           </form>
         </div>
@@ -66,39 +68,42 @@
   </div>
   <!--MODAL PARA EDITAR CATEGORIA-->
   <div if.bind="authService.isAdmin()" class="modal fade" id="edit-category" tabindex="-1" role="dialog" aria-labelledby="edit-category">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header text-center">
+          <h4 class="modal-title">Cambiar nombre de la categoría</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <h4 class="modal-title">Cambiar nombre de la categoría</h4>
-          <br>
+        </div>
           <form submit.delegate="editCategory()">
-            <div class="input-group">
-              <input type="text" class="form-control" value.bind="categoryEditName" required>
-              <span class="input-group-btn">
-                <input type="submit" class="btn btn-secondary ufps-btn-secondary" value="Cambiar">
-              </span>
+            <div class="modal-footer">
+              <div class="input-group mb-3">
+                <input type="text" class="form-control"  value.bind="categoryEditName" required>
+                <div class="input-group-append input-group-btn">
+                  <button class="input-group-text btn btn-secondary ufps-btn-secondary" value="Agregar">cambiar</button>
+                </div>
+              </div>
             </div>
           </form>
-        </div>
       </div>
     </div>
   </div>
 
   <!--MODAL PARA ELIMINAR CATEGORIA-->
   <div if.bind="authService.isAdmin()" class="modal fade" id="remove-category" tabindex="-1" role="dialog" aria-labelledby="remove-category">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header text-center">
+          <h4 class="modal-title">¿Estás seguro de eliminar la categoría ${categoryRemoveName}?</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <h4 class="modal-title">¿Estás seguro de eliminar la categoría ${categoryRemoveName}?</h4>
-          <br>
+        </div>
+        <div class="modal-body">
           <p>Esto no eliminará los problemas de dicha categoría, pero quedarán sin clasificar</p>
-
+        </div>
+        <div class="modal-footer">
           <button class="btn btn-secondary ufps-btn-secondary" click.delegate=removeCategory()>Si</button>
           <button class="btn btn-secondary ufps-btn-secondary" data-dismiss="modal" aria-label="Close">No</button>
         </div>
