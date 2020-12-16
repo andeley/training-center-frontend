@@ -6,13 +6,13 @@
     <div class="ufps-separator-mini"></div>
     <div class="container  container-contest">
       <ol class="breadcrumb bread-mini">
-        <li>
+        <li class="breadcrumb-item">
           <a route-href="route: contest;">Maratones</a>
         </li>
-        <li>
+        <li class="breadcrumb-item">
           <a route-href="route: problems; params.bind: {id:contestId}">${contest.title}</a>
         </li>
-        <li class="active" if.bind="lang === 'es'">${problem.titleES}</li>
+        <li class="breadcrumb-item active" if.bind="lang === 'es'">${problem.titleES}</li>
         <li class="active" if.bind="lang === 'en'">${problem.titleEN}</li>
       </ol>
 

@@ -1302,10 +1302,10 @@ tr:nth-child(2n) td .ufps-score-gold {
     margin-top: 2em;
 }
 
-.card {
-    /*display: inline-block;
-    width: 12em;*/
-}
+/*.card {
+    display: inline-block;
+    width: 12em;
+}*/
 
 #estadisticas {
     padding: 4em;
